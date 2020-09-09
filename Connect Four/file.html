@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<head>
+    <title>Regular expressions in JS</title>
+    <script>
+        function validateEmail() {
+            var mail = document.getElementById("email").value;
+            var regex = /^([a-z A-Z 0-9 . - _]+)+$/;
+            if (regex.test(mail)) {
+                document.getElementById("lb").innerHTML = "Valid Email";
+                document.getElementById("lb").style.visibility = "visible";
+                document.getElementById("lb").style.color = "green";
+            } else {
+                document.getElementById("lb").style.visibility = "visible";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="email" placeholder="Email"><br>
+        <label id="lb" style="color: red; visibility: hidden">Invalid Email</label><br>
+        <button type="button" onclick="validateEmail()">Submit</button>
+    </form>
+</body>
+
+</html>
