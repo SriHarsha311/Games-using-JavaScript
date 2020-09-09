@@ -1,0 +1,21 @@
+.grid {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    height: 550px;
+    width: 700px;
+}
+
+body {
+    background-image: url('images/bg.png');
+    background-size: cover;
+}
+
+.grid img {
+    border-radius: 10px;
+}
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: greenyellow;
+}
