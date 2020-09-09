@@ -66,17 +66,6 @@ function endGame() {
 }
 
 function checkforfour(index, pid) {
-    if (len1 >= 6) {
-        console.log(checkdown(index, pid))
-        console.log(checkupright(index, pid))
-        console.log(checkupleft(index, pid))
-        console.log(checkdownright(index, pid))
-        console.log(checkdownleft(index, pid))
-        console.log(checkright(index, pid))
-        console.log(checkleft(index, pid))
-        console.log(checkup(index, pid))
-        console.log(index)
-    }
     return checkdown(index, pid) ||
         checkdownleft(index, pid) ||
         checkdownright(index, pid) ||
@@ -90,17 +79,18 @@ function checkdown(index, pid) {
     if (index / 7 >= 4) {
         return false;
     }
-    for (let i = 1; i <= 3; i++) {
-        if (!squares[index + (i * 7)].classList.contains(pid)) {
+    for (let i = 0; i <= 3; i++) {
+        if (!squares[index].classList.contains(pid)) {
             return false;
         }
+        index += 7;
     }
     return true;
 }
 
 function checkright(index, pid) {
-    for (let i = 1; i <= 3; i++) {
-        if (index > 48 || !squares[index + 1].classList.contains(pid)) {
+    for (let i = 0; i <= 3; i++) {
+        if (index > 48 || !squares[index].classList.contains(pid)) {
             break;
         }
         index += 1;
@@ -112,10 +102,11 @@ function checkleft(index, pid) {
     if (index % 7 < 3) {
         return false;
     }
-    for (let i = 1; i <= 3; i++) {
-        if (!squares[index - i].classList.contains(pid)) {
+    for (let i = 0; i <= 3; i++) {
+        if (!squares[index].classList.contains(pid)) {
             return false;
         }
+        index -= 1;
     }
     return true;
 }
@@ -124,8 +115,8 @@ function checkdownleft(index, pid) {
     if ((index / 7 >= 4) || (index % 7 < 3)) {
         return false;
     }
-    for (let i = 1; i <= 3; i++) {
-        if (!squares[index + 6].classList.contains(pid)) {
+    for (let i = 0; i <= 3; i++) {
+        if (!squares[index].classList.contains(pid)) {
             return false;
         }
         index += 6;
@@ -134,8 +125,8 @@ function checkdownleft(index, pid) {
 }
 
 function checkupright(index, pid) {
-    for (let i = 1; i <= 3; i++) {
-        if (index < 0 || !squares[index - 6].classList.contains(pid)) {
+    for (let i = 0; i <= 3; i++) {
+        if (index < 0 || !squares[index].classList.contains(pid)) {
             break;
         }
         index -= 6;
@@ -147,8 +138,8 @@ function checkdownright(index, pid) {
     if ((index / 7 >= 4) || (index % 7 > 3)) {
         return false;
     }
-    for (let i = 1; i <= 3; i++) {
-        if (!squares[index + 8].classList.contains(pid)) {
+    for (let i = 0; i <= 3; i++) {
+        if (!squares[index].classList.contains(pid)) {
             return false;
         }
         console.log(squares[index + 8])
@@ -159,12 +150,11 @@ function checkdownright(index, pid) {
 
 function checkupleft(index, pid) {
     let x = index;
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 0; i <= 3; i++) {
         if (index < 0 || !squares[index].classList.contains(pid)) {
             break;
         }
         index -= 8;
-        console.log(index)
     }
     return checkdownright(index, pid);
 }
