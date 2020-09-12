@@ -66,6 +66,16 @@ function endGame() {
 }
 
 function checkforfour(index, pid) {
+    if (len1 >= 6) {
+        // console.log(checkdown(index, pid))
+        // console.log(checkupright(index, pid))
+        console.log(checkupleft(index, pid))
+            // console.log(checkdownright(index, pid))
+            // console.log(checkdownleft(index, pid))
+            // console.log(checkright(index, pid))
+            // console.log(checkleft(index, pid))
+        console.log(index)
+    }
     return checkdown(index, pid) ||
         checkdownleft(index, pid) ||
         checkdownright(index, pid) ||
@@ -131,6 +141,7 @@ function checkupright(index, pid) {
         }
         index -= 6;
     }
+    index += 6;
     return checkdownleft(index, pid);
 }
 
@@ -155,6 +166,8 @@ function checkupleft(index, pid) {
             break;
         }
         index -= 8;
+        console.log(index)
     }
+    index += 8;
     return checkdownright(index, pid);
 }
