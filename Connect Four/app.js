@@ -7,7 +7,6 @@ let len1 = 0,
     len2 = 0;
 const len = squares.length;
 for (var i = 0; i < len; i++) {
-    console.log(i);
 
     (function(index) {
         //add an onclick to each square in your grid
@@ -30,7 +29,7 @@ for (var i = 0; i < len; i++) {
                 if (index >= 7) {
                     squares[index - 7].classList.add('taken')
                 }
-            } else console.log('cant go here')
+            } else alert('cant go here')
         }
     })(i)
 }
@@ -66,16 +65,6 @@ function endGame() {
 }
 
 function checkforfour(index, pid) {
-    if (len1 >= 6) {
-        // console.log(checkdown(index, pid))
-        // console.log(checkupright(index, pid))
-        console.log(checkupleft(index, pid))
-            // console.log(checkdownright(index, pid))
-            // console.log(checkdownleft(index, pid))
-            // console.log(checkright(index, pid))
-            // console.log(checkleft(index, pid))
-        console.log(index)
-    }
     return checkdown(index, pid) ||
         checkdownleft(index, pid) ||
         checkdownright(index, pid) ||
@@ -105,7 +94,7 @@ function checkright(index, pid) {
         }
         index += 1;
     }
-    return checkleft(index, pid);
+    return checkleft(index - 1, pid);
 }
 
 function checkleft(index, pid) {
@@ -153,7 +142,6 @@ function checkdownright(index, pid) {
         if (!squares[index].classList.contains(pid)) {
             return false;
         }
-        console.log(squares[index + 8])
         index += 8;
     }
     return true;
@@ -166,7 +154,6 @@ function checkupleft(index, pid) {
             break;
         }
         index -= 8;
-        console.log(index)
     }
     index += 8;
     return checkdownright(index, pid);
