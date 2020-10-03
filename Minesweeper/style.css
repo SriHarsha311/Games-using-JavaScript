@@ -1,0 +1,35 @@
+.grid {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    border-style: solid;
+}
+
+.grid div {
+    width: 28px;
+    height: 28px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    margin: auto;
+    /* background-color: lightslategray */
+}
+
+.none {
+    background-color: grey;
+    border-color: grey;
+    border-width: 2px;
+}
+
+.flag {
+    /* background-color: yellow; */
+    background-image: url("./flag.png");
+    background-size: cover;
+}
+
+.mine {
+    background-image: url("./mine.png");
+    background-size: cover;
+}
