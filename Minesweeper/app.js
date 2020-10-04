@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     squares[index].classList.add('mine');
                 });
                 setTimeout(() => {
-                    alert("Game over\nYou're infected");
+                    alert("Game over\nYou landed on a mine");
                 }, 100);
             }, 200);
         } else if (arr[this.id] != 0) {
