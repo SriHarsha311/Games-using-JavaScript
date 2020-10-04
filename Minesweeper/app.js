@@ -50,8 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 squares.forEach(index => {
                     index.removeEventListener('click', flip);
                 });
-                alert("Game over\nYou're infected");
-            }, 50);
+                mines.forEach(index => {
+                    squares[index].classList.add('mine');
+                });
+                setTimeout(() => {
+                    alert("Game over\nYou're infected");
+                }, 100);
+            }, 200);
         } else if (arr[this.id] != 0) {
             showNum(this.id);
         } else {
