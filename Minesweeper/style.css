@@ -1,6 +1,4 @@
 .grid {
-    width: 600px;
-    height: 600px;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -8,13 +6,10 @@
 }
 
 .grid div {
-    width: 28px;
-    height: 28px;
     border-style: solid;
     border-color: grey;
     border-width: 1px;
     margin: auto;
-    /* background-color: lightslategray */
 }
 
 .none {
@@ -24,7 +19,6 @@
 }
 
 .flag {
-    /* background-color: yellow; */
     background-image: url("./flag.png");
     background-size: cover;
 }
