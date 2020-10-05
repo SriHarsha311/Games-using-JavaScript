@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let j = index % n;
         isValid(index, i, j);
     });
-    console.log(mines);
 
     function flip() {
         this.removeEventListener('contextmenu', flag);
