@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (count == nom) {
                     alert("GG WP");
                     squares.forEach(index => {
-                        index.removeEventListener('click', flip);
                         index.removeEventListener('contextmenu', flag);
                     });
                 }
