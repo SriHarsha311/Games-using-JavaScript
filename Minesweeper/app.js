@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     var flagged = [];
     var mines = {};
     var nom = 0;
-    var count = 0;
     squares.forEach(index => {
         index.style.width = 28 + "px";
         index.style.height = 28 + "px";
@@ -37,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let j = index % n;
         isValid(index, i, j);
     });
+    console.log(mines);
 
     function flip() {
         this.removeEventListener('contextmenu', flag);
@@ -46,12 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 squares.forEach(index => {
                     index.removeEventListener('click', flip);
+                    index.removeEventListener('contextmenu', flag);
                 });
                 Object.keys(mines).forEach(index => {
                     squares[index].classList.add('mine');
                 });
                 setTimeout(() => {
-                    alert("Game over\nYou're infected\n#RIP");
+                    alert("Game over\nYou're infected\n#RIP\n#noobslivesdontmatter");
                 }, 100);
             }, 200);
         } else if (arr[this.id] != 0) {
@@ -63,28 +64,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function flag() {
         if (this.classList.contains('flag')) {
+            flagged.splice(flagged.indexOf(this.id), 1);
             this.classList.remove('flag');
             this.addEventListener('click', flip);
         } else {
             this.classList.add('flag');
             this.removeEventListener('click', flip);
             flagged.unshift(this.id);
-            if (flagged.length === nom) {
-                flagged.forEach(index => {
-                    if ((index in mines)) {
-                        count += 1;
-                    }
-                });
-                setTimeout(() => {
-                    if (count != nom) {
-                        alert("Noob\nYou're infected\n#RIP");
-                    } else {
-                        alert("GG WP");
-                    }
-                }, 100);
-            }
+        }
+        if (flagged.length === nom) {
+            let count = 0;
+            flagged.forEach(index => {
+                if ((index in mines)) {
+                    count += 1;
+                }
+            });
+            setTimeout(() => {
+                if (count == nom) {
+                    alert("GG WP");
+                    squares.forEach(index => {
+                        index.removeEventListener('click', flip);
+                        index.removeEventListener('contextmenu', flag);
+                    });
+                }
+            }, 100);
         }
     }
+
 
     function showNum(index) {
         const temp = arr[index];
