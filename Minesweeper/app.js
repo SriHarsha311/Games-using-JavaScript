@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     squares[index].classList.add('mine');
                 });
                 setTimeout(() => {
-                    alert("Game over\nYou're infected\n#RIP\n#noobslivesdontmatter");
+                    alert("Uh Oh!!You're infected\nGame over");
                 }, 100);
             }, 200);
         } else if (arr[this.id] != 0) {
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             setTimeout(() => {
                 if (count == nom) {
-                    alert("GG WP");
+                    alert("Congratulations!!!You've located all the mines.You are a true minesweeper.");
                     squares.forEach(index => {
                         index.removeEventListener('contextmenu', flag);
                     });
