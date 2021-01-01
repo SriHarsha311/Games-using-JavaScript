@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         grid.appendChild(d);
     }
     grid.style.width = 600 + "px";
-    grid.style.width = 600 + "px";
+    grid.style.height = 600 + "px";
     var squares = document.querySelectorAll('.grid div');
     var arr = [];
     var flagged = [];
